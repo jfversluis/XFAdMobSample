@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 using Foundation;
+using Google.MobileAds;
 using UIKit;
 
 namespace XFAdMobSample.iOS
@@ -23,9 +24,15 @@ namespace XFAdMobSample.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
+            MobileAds.SharedInstance.Start(CompletionHandler);
             LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);
+        }
+
+        private void CompletionHandler(InitializationStatus status)
+        {
+            
         }
     }
 }
